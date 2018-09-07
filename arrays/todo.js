@@ -1,26 +1,32 @@
-// create an array of 5 to do's
-// print message that includes length ("you have # to do's")
-// print first and second to last items in the terminal (with formatting)
+// const toDo = ["study", "make pie", "dinner date", "buy chocolate", "pack"]
+const toDos = [{
+    item: "study",
+    completed: true
+}, {
+    item: "make pie",
+    completed: true
+}, {
+    item: "dinner date",
+    completed: false
+}, {
+    item: "buy chocolate",
+    completed: true
+}, {
+    item: "Pack",
+    completed: false
+}]
 
-// Delete the third item
-// Add new item onto the end
-// Remove the first item from the list
+// 1. Convert array to array of objects --> text (strings above), completed (true/false)
+// 2. create a function that removes a to do by text value.
 
-const toDo = ["study", "make pie", "dinner date", "buy chocolate", "pack"]
+const deleteToDo = function (toDos, toDoItem) {
+    const index = toDos.findIndex (function (todo) {
+        return todo.item.toLowerCase() === toDoItem.toLowerCase()
+    })
+    if (index > -1){
+        toDos.splice(index, 1);
+    }
+}
 
-
-toDo.splice(2, 1)
-toDo.push("100 cartwheels")
-toDo.shift()
-
-console.log(`You have ${toDo.length} things to do.`)
-
-// print all of the items left to do (ie: 1. dhfksdh 2. kdhfkjs)
-toDo.forEach(function(item, index){
-    console.log(`${index + 1}. ${item} `)
-})
-
-// print items using for loop
-// for(let i = 0; i < toDo.length; i++){
-//     console.log(`${i + 1}. ${toDo[i]} `)
-// }
+deleteToDo(toDos, "Make pie") 
+console.log(toDos)

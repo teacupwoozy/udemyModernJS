@@ -35,14 +35,28 @@ const getThingsToDo = function (toDos){
         return !todo.completed
     })
 }
-console.log(getThingsToDo(toDos, false))
+// console.log(getThingsToDo(toDos, false))
 
 // my way - but doesn't store in a variable
 function isFalse(todo){
     return todo.completed === false
 }
-console.log(toDos.filter(isFalse))
+// console.log(toDos.filter(isFalse))
 
+// sorts list so that completed items are moved to the bottom of the array.
+const sortTodos = function(toDos){
+    toDos.sort(function(a, b){
+        if (!a.completed && b.completed){
+            return -1
+        } else if (!b.completed && a.completed) {
+            return 1
+        } else {
+            return 0
+        }
+    })
+}
+sortTodos(toDos)
+console.log(toDos)
 
 // deleteToDo(toDos, "Make pie") 
 // console.log(toDos)

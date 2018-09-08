@@ -28,5 +28,21 @@ const deleteToDo = function (toDos, toDoItem) {
     }
 }
 
-deleteToDo(toDos, "Make pie") 
-console.log(toDos)
+// get list of toDos that have completed value of false.
+// his way
+const getThingsToDo = function (toDos){
+    return toDos.filter(function (todo){
+        return !todo.completed
+    })
+}
+console.log(getThingsToDo(toDos, false))
+
+// my way - but doesn't store in a variable
+function isFalse(todo){
+    return todo.completed === false
+}
+console.log(toDos.filter(isFalse))
+
+
+// deleteToDo(toDos, "Make pie") 
+// console.log(toDos)

@@ -3,6 +3,7 @@ const account = {
     name: "Stacy M",
     expenses: [],
     income: [],
+    balance: [],
     // addExpense -> two arguements: the description, the amount (add new object on 
     // to expenses array with the correct data)
     addExpense: function (descrip, amount) {
@@ -23,23 +24,24 @@ const account = {
     getAccountSummary: function (){
         let totalExpenses = 0
         let totalIncome = 0
+        let accountBalance = 0
 
         this.expenses.forEach(function(expense){
             totalExpenses = totalExpenses + expense.amount
         })
+
         this.income.forEach(function(income){
             totalIncome = totalIncome + income.amount
         })
 
-        return `${account.name} has a balance of $${totalIncome - totalExpenses}, with $${totalExpenses} in expenses and a total income of $${totalIncome}.`
-    },
-    
+        accountBalance = accountBalance + totalIncome - totalExpenses
 
+        return `${account.name} has a balance of $${accountBalance}, with $${totalExpenses} in expenses and a total income of $${totalIncome}.`
+    }
 }
 
 account.addExpense("Rent", 950)
 account.addExpense("Coffee", 2)
 account.addIncome("Job", 1000)
 account.addIncome("hustle", 225)
-// console.log(account)
 console.log(account.getAccountSummary())

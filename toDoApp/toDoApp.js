@@ -1,18 +1,27 @@
 // const toDo = ["study", "make pie", "dinner date", "buy chocolate", "pack"]
 const toDos = [{
     item: "study",
-    completed: true
+    category: "school",
+    completed: false
 }, {
     item: "make pie",
+    category: "home",
     completed: true
 }, {
     item: "dinner date",
+    category: "personal",
     completed: false
 }, {
     item: "buy chocolate",
+    category: "home",
     completed: true
 }, {
     item: "pack",
+    category: "personal",
+    completed: false
+}, {
+    item: "write program",
+    category: "school",
     completed: false
 }]
 
@@ -31,3 +40,8 @@ toDos.forEach(function (todo) {
     paragraph.textContent = todo.item
     document.querySelector("body").appendChild(paragraph)
 })
+
+// List the count for each category
+
+
+// my own exercise: Print summary of how many items in each category are left to do

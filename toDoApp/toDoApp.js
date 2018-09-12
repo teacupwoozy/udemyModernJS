@@ -41,6 +41,12 @@ toDos.forEach(function (todo) {
     document.querySelector("body").appendChild(paragraph)
 })
 
+// Listen for new to do creation.
+document.querySelector("button").addEventListener("click", function(){
+    console.log("To Do button clicked!")
+})
+
+
 // List the count for each category
 
 

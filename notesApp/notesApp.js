@@ -9,23 +9,6 @@ const notes = [{
     body: "get an office"
 }]
 
-// DOM Document Object Model
-
-// query and remove first <p> tag in html file
-// const p = document.querySelector("p")
-// p.remove()
-
-// Query all and remove
-const ps = document.querySelectorAll("p")
-
-// do different things with those selected elements
-ps.forEach(function(p){
-    p.textContent = "**ck"
-    // console.log(p.textContent)
-    // p.remove()
+document.querySelector("button").addEventListener("click", function(e){
+    e.target.textContent = "The button was clicked."
 })
-
-// Add a new element
-const newParagraph = document.createElement("p")
-newParagraph.textContent = "This is a new element from javascript."
-document.querySelector("body").appendChild(newParagraph)

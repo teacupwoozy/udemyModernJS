@@ -41,6 +41,10 @@ toDos.forEach(function (todo) {
     document.querySelector("body").appendChild(paragraph)
 })
 
+// Listen for add to do text change.
+document.querySelector("#new-todo").addEventListener("input", function(e){
+    console.log(e.target.value)
+})
 // Listen for new to do creation.
 document.querySelector("#add-todo").addEventListener("click", function(){
     console.log("To Do button clicked!")

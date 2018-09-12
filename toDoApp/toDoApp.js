@@ -42,7 +42,7 @@ toDos.forEach(function (todo) {
 })
 
 // Listen for new to do creation.
-document.querySelector("button").addEventListener("click", function(){
+document.querySelector("#add-todo").addEventListener("click", function(){
     console.log("To Do button clicked!")
 })
 

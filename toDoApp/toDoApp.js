@@ -46,22 +46,28 @@ const renderTodos = function(todos, filters){
         paragraph.textContent = todo.item
         document.querySelector("#todos").appendChild(paragraph)
     })
-
 }
 
 renderTodos(todos, filters)
-
-
-// Listen for add to do text change.
-document.querySelector("#new-todo").addEventListener("input", function(e){
-    console.log(e.target.value)
-})
-// Listen for new to do creation.
-document.querySelector("#add-todo").addEventListener("click", function(){
-    console.log("To Do button clicked!")
-})
 
 document.querySelector("#search-text").addEventListener("input", function(e){
     filters.searchText = e.target.value
     renderTodos(todos, filters)
 })
+
+// document.querySelector("#name-form").addEventListener("submit", function (e) {
+//     e.preventDefault()
+//     console.log(e.target.elements.firstName.value)
+//     e.target.elements.firstName.value = ""
+// })
+
+document.querySelector("#add-todo-form").addEventListener("submit", function(e){
+    e.preventDefault()
+    todos.push({
+        item: e.target.elements.newTodo.value,
+        completed: false
+    })
+    renderTodos(todos, filters)
+    e.target.elements.newTodo.value = "" 
+})
+

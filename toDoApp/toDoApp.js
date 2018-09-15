@@ -21,12 +21,21 @@ const todos = [{
 
 // Set up filters (searchText) and wire up a new filter input to change it.
 const filters = {
-    searchText: ""
+    searchText: "",
+    hideCompleted: false
 }
 // Create a renderTodos function to render and rerender the latest filtered data.
 const renderTodos = function(todos, filters){
-    const filteredTodos = todos.filter(function(todo){
+    let filteredTodos = todos.filter(function(todo){
         return todo.item.toLowerCase().includes(filters.searchText.toLowerCase())
+    })
+
+    filteredTodos = filteredTodos.filter(function(todo){
+        if(filters.hideCompleted){
+            return !todo.completed
+        } else {
+            return true
+        }
     })
 
     // Print summary message: "you have # to do's left" into p tag
@@ -55,12 +64,6 @@ document.querySelector("#search-text").addEventListener("input", function(e){
     renderTodos(todos, filters)
 })
 
-// document.querySelector("#name-form").addEventListener("submit", function (e) {
-//     e.preventDefault()
-//     console.log(e.target.elements.firstName.value)
-//     e.target.elements.firstName.value = ""
-// })
-
 document.querySelector("#add-todo-form").addEventListener("submit", function(e){
     e.preventDefault()
     todos.push({
@@ -69,5 +72,10 @@ document.querySelector("#add-todo-form").addEventListener("submit", function(e){
     })
     renderTodos(todos, filters)
     e.target.elements.newTodo.value = "" 
+})
+
+document.querySelector("#hide-completed").addEventListener("change", function(e){
+    filters.hideCompleted = e.target.checked
+    renderTodos(todos, filters)
 })
 

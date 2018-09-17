@@ -13,13 +13,17 @@ const filters = {
     searchText: ""
 }
 
-// localStorage.setItem("location", "Querétaro")
+// const user = {
+//     name: "Frida",
+//     age: 39
+// }
+// const userJSON = JSON.stringify(user)
+// console.log(userJSON)
+// localStorage.setItem("user", userJSON)
 
-// console.log(localStorage.getItem("location"))
-
-// localStorage.removeItem("location")
-
-localStorage.clear()
+const userJSON = localStorage.getItem("user")
+const user = JSON.parse(userJSON)
+console.log(`${user.name} is ${user.age}`)
 
 const renderNotes = function(notes, filters){
     const filteredNotes = notes.filter(function(note){

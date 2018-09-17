@@ -1,29 +1,15 @@
-const notes = [{
-    title: "My next trip",
-    body: "I'd like to go to Spain"
-}, {
-    title: "New habits",
-    body: "moar veggies, moar coding"
-}, {
-    title: "All the office mods",
-    body: "get an office"
-}]
+let notes = []
 
 const filters = {
     searchText: ""
 }
 
-// const user = {
-//     name: "Frida",
-//     age: 39
-// }
-// const userJSON = JSON.stringify(user)
-// console.log(userJSON)
-// localStorage.setItem("user", userJSON)
+// Check for existing saved data
+const notesJSON = localStorage.getItem("notes")
 
-const userJSON = localStorage.getItem("user")
-const user = JSON.parse(userJSON)
-console.log(`${user.name} is ${user.age}`)
+if (notesJSON !== null){
+    notes = JSON.parse(notesJSON)
+}
 
 const renderNotes = function(notes, filters){
     const filteredNotes = notes.filter(function(note){
@@ -34,6 +20,12 @@ const renderNotes = function(notes, filters){
 
     filteredNotes.forEach(function(note){
         const noteEl = document.createElement("p")
+        if(note.title.length > 0){
+            noteEl.textContent = note.title
+        } else {
+            noteEl.textContent = "unnamed note"
+        }
+
         noteEl.textContent = note.title
         document.querySelector("#notes").appendChild(noteEl)
     })
@@ -42,7 +34,12 @@ const renderNotes = function(notes, filters){
 renderNotes(notes, filters)
 
 document.querySelector("#create-note").addEventListener("click", function(e){
-    e.target.textContent = "The button was clicked."
+    notes.push({
+        title: "",
+        body: ""
+    })
+    localStorage.setItem("notes", JSON.stringify(notes))
+    renderNotes(notes, filters)
 })
 
 

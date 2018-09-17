@@ -8,13 +8,13 @@
         <h1>Notes App 😘 🌈</h1>
         <h2>Take notes and never forget 🧐 </h2>
         <input type="text" placeholder="Filter Notes" id="search-text">
-        <div id="notes">
-            
-        </div>
+        <select id="filter-by">
+            <option value="byEdited">Sort by last edited</option>
+            <option value="byCreate">Sort by recently created</option>
+            <option value="alphabetical">Sort alphabetically</option>
+        </select>
+        <div id="notes"></div>
         <button id="create-note">Create Note</button>
-        <label>
-            <input type="checkbox" name="" id="for-fun">Check me for fun
-        </label>
         <script src="notesApp.js"></script>
     </body>
 </html>

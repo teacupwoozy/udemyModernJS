@@ -19,7 +19,7 @@ let renderTodos = function (todos, filters) {
     let filteredTodos = todos.filter(function (todo) {
         const searchTextMatch = todo.text.toLowerCase().includes(filters.searchText.toLowerCase())
         const hideCompletedMatch = !filters.hideCompleted || !todo.completed
-
+    
         return searchTextMatch && hideCompletedMatch
     })
 
@@ -39,9 +39,23 @@ let renderTodos = function (todos, filters) {
 
 // Get DOM element for individual todo
 const generateTodoDOM = function(todo){
-    const paragraph = document.createElement("p")
-    paragraph.textContent = todo.text
-    return paragraph
+    const todoEl = document.createElement("div")
+    const checkbox = document.createElement("input")
+    const todoText = document.createElement("span")
+    const removeButton = document.createElement("button")
+
+    // Setup todo checkbox
+    checkbox.setAttribute("type", "checkbox")
+    todoEl.appendChild(checkbox)
+
+    // Setup todo text
+    todoText.textContent = todo.text
+    todoEl.appendChild(todoText)
+
+    removeButton.textContent = "🙅🏽‍♀️"
+    todoEl.appendChild(removeButton)
+
+    return todoEl
 }
 
 // Get the DOM element for list summary

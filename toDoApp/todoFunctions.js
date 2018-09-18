@@ -37,6 +37,18 @@ let renderTodos = function (todos, filters) {
     })
 }
 
+// Remove todo by id
+const removeTodo = function(id){
+    const todoIndex = todos.findIndex(function(todo){
+        return todo.id === id
+    })
+    if (todoIndex > -1){
+        todos.splice(todoIndex, 1)
+    }
+}
+
+
+
 // Get DOM element for individual todo
 const generateTodoDOM = function(todo){
     const todoEl = document.createElement("div")
@@ -52,8 +64,14 @@ const generateTodoDOM = function(todo){
     todoText.textContent = todo.text
     todoEl.appendChild(todoText)
 
+    // Set up remove button
     removeButton.textContent = "🙅🏽‍♀️"
     todoEl.appendChild(removeButton)
+    removeButton.addEventListener("click", function(){
+        removeTodo(todo.id)
+        getSavedTodos(todos)
+        renderTodos(todos, filters)
+    })
 
     return todoEl
 }

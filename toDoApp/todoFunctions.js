@@ -48,6 +48,7 @@ const removeTodo = function(id){
 }
 
 
+// check checkbox if todo is true
 
 // Get DOM element for individual todo
 const generateTodoDOM = function(todo){
@@ -58,7 +59,9 @@ const generateTodoDOM = function(todo){
 
     // Setup todo checkbox
     checkbox.setAttribute("type", "checkbox")
+    checkbox.checked = todo.completed
     todoEl.appendChild(checkbox)
+    
 
     // Setup todo text
     todoText.textContent = todo.text

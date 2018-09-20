@@ -34,26 +34,15 @@ window.addEventListener("storage", function(e){
     }
 })
 
-const now = new Date()
-const timestamp = now.getTime()
+// const now = moment()
+// now.subtract(1, "week").subtract(20, "days")
+// console.log(now.format("MMMM Do, YYYY"))
+// console.log(now.fromNow())
+// const nowTimestamp = now.valueOf()
+// console.log(moment(nowTimestamp).toString())
 
-const myDate = new Date(timestamp)
-console.log(myDate.getFullYear())
 
-// console.log(`Year: ${now.getFullYear()}`)
-// console.log(`Month: ${now.getMonth()}`)
-// console.log(`Day of the month: ${now.getDate()}`)
-// console.log(`Hour: ${now.getHours()}`)
-// console.log(`Minute: ${now.getMinutes()}`)
-// console.log(`Seconds: ${now.getSeconds()}`)
+const birthday = moment()
+birthday.year(2001).month(7).date(1)
 
-const dateOne = new Date("October 1 2018 12:00:00")
-const dateTwo = new Date()
-const dateOneTimestamp = dateOne.getTime()
-const dateTwoTimestamp = dateTwo.getTime()
-
-if (dateOneTimestamp < dateTwoTimestamp) {
-    console.log(dateOne.toString())
-} else if (dateTwoTimestamp < dateOneTimestamp) {
-    console.log(dateTwo.toString())
-}
+console.log(birthday.format("MMM D YYYY"))

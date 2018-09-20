@@ -9,6 +9,11 @@ const getSavedNotes = function(){
     }
 }
 
+// Save the notes to localStorage
+const saveNotes = function (notes) {
+    localStorage.setItem('notes', JSON.stringify(notes))
+}
+
 // Remove a note from the list
 const removeNote = function(id){
     const noteIndex = notes.findIndex(function(note){

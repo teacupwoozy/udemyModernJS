@@ -23,8 +23,5 @@ const people = [{
 const under30 = people.filter((person) => person.age < 30)
 console.log(under30)
 
-// const is27 = people.filter(function(person){
-//     return person.age === 27
-// })
 const is27 = people.filter((person) => person.age === 27)
 console.log(is27)

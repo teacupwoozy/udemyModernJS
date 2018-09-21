@@ -5,6 +5,10 @@
 
 
 const testInputs = function(score, possible) {
+    if (typeof score !== "number" || typeof possible !== "number") {
+        throw Error ("Argument must be a number")
+    }
+
     const studentScore = (score / possible) * 100
     let letterGrade = ""
 
@@ -20,21 +24,13 @@ const testInputs = function(score, possible) {
         letterGrade = "F"
     }
     return `You earned a ${letterGrade} (${studentScore}%)`
+} 
+// try catch
+try {
+    // Call the function
+    const grade = testInputs(85, 100)
+    // Print the string
+    console.log(grade)
+} catch (e) {
+    console.log(e.message)
 }
-//     if(studentScore >= 90){
-//         return `You earned an A (${studentScore}%)`
-//     } else if(studentScore >= 80) {
-//         return `You earned a B (${studentScore}%)`
-//     } else if (studentScore >= 70) {
-//         return `You earned a C (${studentScore}%)`
-//     } else if (studentScore >= 60) {
-//         return `You earned a D (${studentScore}%)`
-//     } else {
-//         return `You earned an F (${studentScore}%)`
-//     }
-// }
-// Call the function
-const grade = testInputs(85, 100)
-// Print the string
-console.log(grade)
-

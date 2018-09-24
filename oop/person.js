@@ -6,8 +6,12 @@ const Person = function (firstName, lastName, age, likes) {
 }
 
 Person.prototype.getBio = function(){
-    
-    return `${this.firstName} is ${this.age}.`
+let bio = `${this.firstName} is ${this.age}.`
+
+this.likes.forEach((like) => {
+    bio += ` ${this.firstName} likes ${like}.`
+})
+return bio
 }
 
 Person.prototype.setName = function(fullName){

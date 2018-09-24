@@ -1,3 +1,5 @@
+"use strict"
+
 let todos = getSavedTodos()
 
 // Set up filters (searchText) and wire up a new filter input to change it.

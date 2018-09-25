@@ -1,16 +1,12 @@
-const product = {
-    name: "The Power"
-}
+// Object: myObject  --> Onject.prototype --> null
+// Array: myArray --> Array.prototype --> Object.prototype --> null
+// Function: myFunc --> Function.prototype --> Object.prototype --> null
+// String: myString --> String.prototype --> Object.prototype --> null
+// Number: myNumber --> Number.prototype --> Object.prototype --> null
+// Boolean: myBoolean --> Boolean.prototype --> Object.prototype --> null
 
-// garbage examples that I don't know why we're having this conversation... ug.
-// const product = new Object()
-// product.name = "You Don't Know JS"
-
-// const product = new Object({
-//     name: "Persuasion"
-// })
-
-Object.prototype.someNewMethod = () => "This is garbage"
-
-console.log(product.someNewMethod())
+const product = "Computer"
 console.log(product)
+
+const otherProduct = new String("Phone")
+console.log(otherProduct)

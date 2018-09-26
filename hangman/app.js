@@ -4,6 +4,7 @@ const try1 = new Hangman("cat", 4)
 
 puzzleEl.textContent = try1.getPuzzle()
 guessesEl.textContent = try1.guessCount
+console.log(try1.status)
 
 
 
@@ -12,4 +13,5 @@ window.addEventListener("keypress", function (e) {
     try1.makeGuess(guess)
     puzzleEl.textContent = try1.getPuzzle()
     guessesEl.textContent = try1.guessCount
+    console.log(try1.status)
 })

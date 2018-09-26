@@ -3,6 +3,27 @@ const Hangman = function(word, guessCount, char) {
     this.guessCount = guessCount
     this.lettersGuessed = []
     this.char = char
+    this.status = "playing"
+}
+
+Hangman.prototype.calcStatus = function(){
+    let finished =true
+
+    this.word.forEach((letter) => {
+        if (this.lettersGuessed.includes(letter)) {
+
+        } else {
+            finished = false
+        }
+    })
+
+    if (this.guessCount === 0) {
+        this.status = "failed"
+    } else if (finished) {
+        this.status = "finished"
+    } else {
+        this.status = "playing"
+    }
 }
 
 Hangman.prototype.getPuzzle = function(){
@@ -28,4 +49,6 @@ Hangman.prototype.makeGuess = function(guess){
     if(isUnique && isBadGuess){
         this.guessCount--
     }
+
+    this.calcStatus()
 }

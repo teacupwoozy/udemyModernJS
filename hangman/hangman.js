@@ -1,7 +1,7 @@
 const Hangman = function(word, guessCount, char) {
     this.word = word.toLowerCase().split("")
     this.guessCount = guessCount
-    this.lettersGuessed = ["c", "d"]
+    this.lettersGuessed = []
     this.char = char
 }
 
@@ -31,14 +31,12 @@ Hangman.prototype.makeGuess = function(guess){
 }
 
 const try1 = new Hangman("cat", 4)
-try1.makeGuess("c")
-try1.makeGuess("t")
-try1.makeGuess("z")
 console.log(try1.getPuzzle())
 console.log(try1.guessCount)
 
-const try2 = new Hangman("beep beep", 2)
-try2. makeGuess("b")
-try2. makeGuess("r")
-console.log(try2.getPuzzle())
-console.log(try2.guessCount)
+window.addEventListener("keypress", function(e){
+    const guess = String.fromCharCode(e.charCode)
+    try1.makeGuess(guess)
+    console.log(try1.getPuzzle())
+    console.log(try1.guessCount)
+})

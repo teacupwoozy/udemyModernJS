@@ -1,12 +1,15 @@
-// Object: myObject  --> Onject.prototype --> null
-// Array: myArray --> Array.prototype --> Object.prototype --> null
-// Function: myFunc --> Function.prototype --> Object.prototype --> null
-// String: myString --> String.prototype --> Object.prototype --> null
-// Number: myNumber --> Number.prototype --> Object.prototype --> null
-// Boolean: myBoolean --> Boolean.prototype --> Object.prototype --> null
+const puzzleEl = document.querySelector("#puzzle")
+const guessesEl = document.querySelector("#guesses")
+const try1 = new Hangman("cat", 4)
 
-const product = "Computer"
-console.log(product)
+puzzleEl.textContent = try1.getPuzzle()
+guessesEl.textContent = try1.guessCount
 
-const otherProduct = new String("Phone")
-console.log(otherProduct)
+
+
+window.addEventListener("keypress", function (e) {
+    const guess = String.fromCharCode(e.charCode)
+    try1.makeGuess(guess)
+    puzzleEl.textContent = try1.getPuzzle()
+    guessesEl.textContent = try1.guessCount
+})

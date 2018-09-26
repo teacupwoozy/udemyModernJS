@@ -29,14 +29,3 @@ Hangman.prototype.makeGuess = function(guess){
         this.guessCount--
     }
 }
-
-const try1 = new Hangman("cat", 4)
-console.log(try1.getPuzzle())
-console.log(try1.guessCount)
-
-window.addEventListener("keypress", function(e){
-    const guess = String.fromCharCode(e.charCode)
-    try1.makeGuess(guess)
-    console.log(try1.getPuzzle())
-    console.log(try1.guessCount)
-})

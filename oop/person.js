@@ -20,13 +20,24 @@ class Person {
     }
 }
 
+class Employee extends Person {
+    constructor(firstName, lastName, age, position, likes) {
+        super(firstName, lastName, age, likes)
+        this.position = position
+    }
+    getBio() {
+        return `${this.firstName} ${this.lastName} is a ${this.position}.`
+    }
+    getYearsLeft() {
+        return 65 - this.age
+    }
+}
 
 
-const me = new Person("Donna", "Washington", 57, ["reading", "kicking ass"])
-
-
+const me = new Employee ("Donna", "Washington", 57, "Slayer", ["reading", "kicking ass"])
 me.setName("Sophie Scholl")
 console.log(me.getBio())
+console.log(me.getYearsLeft())
 
 const person2 = new Person("Denise", "Jones", 32, [])
 console.log(person2.getBio())

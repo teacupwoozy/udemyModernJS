@@ -33,11 +33,38 @@ class Employee extends Person {
     }
 }
 
+class Student extends Person {
+    constructor(firstName, lastName, age, likes, grade) {
+        super(firstName, lastName, age, likes)
+        this.grade = grade
 
-const me = new Employee ("Donna", "Washington", 57, "Slayer", ["reading", "kicking ass"])
-me.setName("Sophie Scholl")
-console.log(me.getBio())
-console.log(me.getYearsLeft())
+    }
+    getBio() {
+        const status = this.grade >= 70 ? "passing" : "failing"
+        return `${this.firstName} is ${status} the class.`
 
-const person2 = new Person("Denise", "Jones", 32, [])
-console.log(person2.getBio())
+        // if(this.grade >= 70) {
+        //     return `${this.firstName} is passing the class.`
+        // } else {
+        //     return `${this.firstName} is failing the class.`
+        // }
+    }
+    updateGrade(pointChange) {
+        this.grade += pointChange
+    }
+}
+
+
+const person3 = new Student ("Monsi", "Ramirez", 34, "not taking any bullshit", 99)
+console.log(person3.getBio())
+person3.updateGrade(-40)
+console.log(person3.getBio())
+
+
+// const me = new Employee ("Donna", "Washington", 57, "Slayer", ["reading", "kicking ass"])
+// me.setName("Sophie Scholl")
+// console.log(me.getBio())
+// console.log(me.getYearsLeft())
+
+// const person2 = new Person("Denise", "Jones", 32, [])
+// console.log(person2.getBio())

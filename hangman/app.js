@@ -26,7 +26,26 @@ request.addEventListener("readystatechange", (e) => {
     } else if(e.target.readyState === 4) {
         console.log("An error has taken place.")
     }
-}) 
+})
 
 request.open("GET", "http://puzzle.mead.io/puzzle?wordCount=3")
 request.send()
+
+// country HTTP request
+const countryCode = "MX"
+const countryRequest = new XMLHttpRequest()
+
+countryRequest.addEventListener("readystatechange", (e) => {
+    if (e.target.readyState === 4 && e.target.status === 200) {
+        const data = JSON.parse(e.target.responseText)
+        const isMexico = function (countries) {
+            return countries.alpha2Code === countryCode
+        }
+        console.log(data.find(isMexico).name)
+    } else if (e.target.readyState === 4) {
+        console.log("There's an oopsie.")
+    }
+})
+
+countryRequest.open("GET", "http://restcountries.eu/rest/v2/all")
+countryRequest.send()

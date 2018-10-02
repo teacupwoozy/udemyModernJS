@@ -18,13 +18,13 @@ window.addEventListener("keypress", (e) => {
 
 getPuzzle("2").then((puzzle) => {
     console.log(puzzle)
-}), (err) => {
+}).catch((err) => {
     console.log(`Error: ${err}`)
-}
+})
 
 // country HTTP request
 getCountry("AZ").then((country) => {
     console.log(country.name)
-}), (err) => {
+}).catch((err) => {
     console.log(`Error: ${err}`)
-}
+})

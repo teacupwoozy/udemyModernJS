@@ -22,16 +22,11 @@ getPuzzle("2").then((puzzle) => {
     console.log(`Error: ${err}`)
 })
 
-// country HTTP request
-getCountry("AZ").then((country) => {
-    console.log(country.name)
-}).catch((err) => {
-    console.log(`Error: ${err}`)
-})
-
-// get location
+// get location with promise
 getLocation().then((location) => {
-    console.log(`You are located in ${location.city} in the ${location.region} region of ${location.country}.`)
+    return getCountry(location.country)
+}).then((country) => {
+    console.log(country.name)
 }).catch((err) => {
     console.log(`Error: ${err}`)
 })

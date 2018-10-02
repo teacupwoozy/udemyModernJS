@@ -16,19 +16,15 @@ window.addEventListener("keypress", (e) => {
 
 })
 
-getPuzzle("5", (error, puzzle) => {
-    if(error) {
-        console.log(`Error: ${error}`)
-    } else {
+getPuzzle("2").then((puzzle) => {
     console.log(puzzle)
-    }
-})
+}), (err) => {
+    console.log(`Error: ${err}`)
+}
 
 // country HTTP request
-getCountry("BR", (error, country) => {
-    if (error) {
-        console.log(error)
-    } else {
-        console.log(`Country name: ${country.name}`)
-    }
-})
+getCountry("AZ").then((country) => {
+    console.log(country.name)
+}), (err) => {
+    console.log(`Error: ${err}`)
+}

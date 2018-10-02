@@ -28,3 +28,10 @@ getCountry("AZ").then((country) => {
 }).catch((err) => {
     console.log(`Error: ${err}`)
 })
+
+// get location
+getLocation().then((location) => {
+    console.log(`You are located in ${location.city} in the ${location.region} region of ${location.country}.`)
+}).catch((err) => {
+    console.log(`Error: ${err}`)
+})

@@ -16,16 +16,22 @@ document.querySelector("#search-text").addEventListener("input", (e) => {
 })
 
 document.querySelector("#add-todo-form").addEventListener("submit", (e) => {
+    const text = e.target.elements.newTodo.value.trim()
     e.preventDefault()
-    todos.push({
-        // item: e.target.elements.newTodo.value,
-        id: uuidv4(),
-        text: e.target.elements.newTodo.value,
-        completed: false
-    })
-    savedTodos(todos)
-    renderTodos(todos, filters)
-    e.target.elements.newTodo.value = "" 
+
+    if(text.length > 0) {
+        todos.push({
+            id: uuidv4(),
+            text,
+            completed: false
+        })
+        savedTodos(todos)
+        renderTodos(todos, filters)
+        e.target.elements.newTodo.value = "" 
+    } 
+    
+    
+  
 })
 
 document.querySelector("#hide-completed").addEventListener("change", (e) => {

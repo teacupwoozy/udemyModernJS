@@ -2,20 +2,37 @@
 <html>
 <head>
     <title>To Do Apptastic</title>
+    <link rel="stylesheet" href="/styles/styles.css">
+    <link rel="icon" href="images/favicon.png">
 </head>
 <body>
-    <h1>To Do Apptastic 👩🏽‍🔬</h1>
-    <input id="search-text" type="text" placeholder="Search Todos">
-    <label>
-        <input type="checkbox" id="hide-completed">Hide completed todos
-    </label>
-    <div id="todos"></div>
-    <form id="add-todo-form" action="">
-        <input type="text" placeholder="Add new todo" name="newTodo">
-        <button>Submit</button>
-    </form>
-    <script src="uuid.js"></script>
-    <script src="todoFunctions.js"></script>
-    <script src="toDoApp.js"></script>
+    <div class="header">
+        <div class="container">
+            <h1 class="header__title">To Do Apptastic 👩🏽‍🔬</h1>
+            <h2 class="header__subtitle">What do you need to do today?</h2>
+        </div>
+    </div>
+
+    <div class="actions">
+        <div class="actions__container">
+            <input id="search-text" class="input" type="text" placeholder="Search Todos">
+            <label class="checkbox">
+                <input type="checkbox" id="hide-completed">Hide completed todos
+            </label>
+        </div>
+    </div>
+
+    <div class="container">
+        <div id="todos"></div>
+        <form id="add-todo-form" action="">
+            <input type="text" class="input" placeholder="Add new todo" name="newTodo">
+            <button class="button">Submit</button>
+        </form>
+    </div>
+
+
+    <script src="/scripts/uuid.js"></script>
+    <script src="/scripts/todoFunctions.js"></script>
+    <script src="/scripts/toDoApp.js"></script>
 </body>
 </html>

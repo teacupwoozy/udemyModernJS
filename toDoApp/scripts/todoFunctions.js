@@ -55,7 +55,8 @@ const toggleTodo = (id) => {
 
 // Get DOM element for individual todo
 const generateTodoDOM = (todo) => {
-    const todoEl = document.createElement("div")
+    const todoEl = document.createElement("label")
+    const containerEl = document.createElement("div")
     const checkbox = document.createElement("input")
     const todoText = document.createElement("span")
     const removeButton = document.createElement("button")
@@ -63,7 +64,7 @@ const generateTodoDOM = (todo) => {
     // Setup todo checkbox
     checkbox.setAttribute("type", "checkbox")
     checkbox.checked = todo.completed
-    todoEl.appendChild(checkbox)
+    containerEl.appendChild(checkbox)
     checkbox.addEventListener("change", () => {
         toggleTodo(todo.id)
         savedTodos(todos)
@@ -72,16 +73,24 @@ const generateTodoDOM = (todo) => {
     
     // Setup todo text
     todoText.textContent = todo.text
-    todoEl.appendChild(todoText)
+    containerEl.appendChild(todoText)
+
+    // Set up container
+    todoEl.classList.add("list-item")
+    containerEl.classList.add("list-item__container")
+    todoEl.appendChild(containerEl)
 
     // Set up remove button
     removeButton.textContent = "🙅🏽‍♀️"
+    // can change aboveemoji to "remove"
+    removeButton.classList.add("button", "button--text")
     todoEl.appendChild(removeButton)
     removeButton.addEventListener("click", function(){
         removeTodo(todo.id)
         getSavedTodos(todos)
         renderTodos(todos, filters)
     })
+
     return todoEl
 }
 

@@ -31,10 +31,16 @@ let renderTodos = (todos, filters) => {
     document.querySelector("#todos").innerHTML = ""
     document.querySelector("#todos").appendChild(generateSummaryDOM(incompleteTodos))
 
-    // Print a p for each to do above (use the text value of the object as the text for p)
-    filteredTodos.forEach((todo) => {
-        document.querySelector("#todos").appendChild(generateTodoDOM(todo))
-    })
+    if(filteredTodos.length > 0) {
+        filteredTodos.forEach((todo) => {
+            document.querySelector("#todos").appendChild(generateTodoDOM(todo))
+        })
+    } else {
+        const messageEl = document.createElement("p")
+        messageEl.classList.add("empty-message")
+        messageEl.textContent = "No to dos to show."
+        document.querySelector("#todos").appendChild(messageEl)
+    }
 }
 
 // Remove todo by id

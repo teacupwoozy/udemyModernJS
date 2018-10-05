@@ -1,12 +1,8 @@
-const name = "Janet";
+// import "./utilities"
+import { add, name } from "./utilities";
 
-console.log(name);
+console.log("utilities.js")
 
-class Hangman {
-    myMethod() {
-        return "Testing"
-    }
-}
+console.log(add(32, 1))
 
-const hangman = new Hangman()
-console.log(hangman.myMethod())
+console.log(name)
